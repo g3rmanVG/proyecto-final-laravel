@@ -5,44 +5,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Acceso</title>
-    <style>
-        /* Estilos para los modales */
-        .modal {
-            display: none;
-            position: fixed;
-            z-index: 1;
-            left: 0;
-            top: 0;
-            width: 100%;
-            height: 100%;
-            overflow: auto;
-            background-color: rgb(0, 0, 0);
-            background-color: rgba(0, 0, 0, 0.4);
-            padding-top: 60px;
-        }
-
-        .modal-content {
-            background-color: #fefefe;
-            margin: 5% auto;
-            padding: 20px;
-            border: 1px solid #888;
-            width: 80%;
-        }
-
-        .close {
-            color: #aaa;
-            float: right;
-            font-size: 28px;
-            font-weight: bold;
-        }
-
-        .close:hover,
-        .close:focus {
-            color: black;
-            text-decoration: none;
-            cursor: pointer;
-        }
-    </style>
+    <!-- Incluir el archivo CSS -->
+    <link rel="stylesheet" href="{{ asset('css/access.css') }}">
 </head>
 
 <body>
@@ -82,44 +46,8 @@
         <button type="submit">Volver al Inicio</button>
     </form>
 
-    <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            var modal = document.getElementById('messageModal');
-            var span = document.getElementsByClassName('close')[0];
-            var successSound = document.getElementById('successSound');
-            var errorSound = document.getElementById('errorSound');
-
-            if (modal) {
-                // Mostrar el modal y reproducir el sonido correspondiente
-                modal.style.display = 'block';
-
-                // Comprobar si el mensaje es de éxito o de error (esto depende del contenido de session('message'))
-                var message = "{{ session('message') }}";
-                if (message.includes("Acceso concedido")) {
-                    successSound.play();
-                } else {
-                    errorSound.play();
-                }
-
-                // Ocultar el modal después de 7 segundos
-                setTimeout(function() {
-                    modal.style.display = 'none';
-                }, 7000);
-            }
-
-            // Cerrar el modal cuando se hace clic en la "x"
-            span.onclick = function() {
-                modal.style.display = 'none';
-            }
-
-            // Cerrar el modal cuando se hace clic fuera de él
-            window.onclick = function(event) {
-                if (event.target == modal) {
-                    modal.style.display = 'none';
-                }
-            }
-        });
-    </script>
+    <!-- Incluir el archivo JavaScript -->
+    <script src="{{ asset('js/access.js') }}"></script>
 </body>
 
 </html>
