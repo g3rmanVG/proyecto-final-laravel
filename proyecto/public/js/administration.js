@@ -12,7 +12,7 @@ $(document).ready(function() {
     var closeEditBtn = document.getElementById("closeEditModal");
 
     addBtn.onclick = function() {
-        addModal.style.display = "block";
+        addModal.style.display = "flex";
     }
 
     closeAddBtn.onclick = function() {
@@ -46,7 +46,7 @@ $(document).ready(function() {
         var form = $('#editCustomerForm');
         form.attr('action', '/customers/' + customerID);
 
-        editModal.style.display = "block";
+        editModal.style.display = "flex";
     });
 
     $('#toggleAddPinVisibility').on('click', function() {

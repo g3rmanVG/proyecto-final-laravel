@@ -49,7 +49,7 @@
             <form action="{{ route('admin.authenticate') }}" method="POST">
                 @csrf
                 <label for="username">Usuario:</label>
-                <input type="text" id="username" name="username" required>
+                <input type="text" id="username" name="username" required autofocus>
 
                 <label for="password">Contraseña:</label>
                 <input type="password" id="password" name="password" required>

@@ -26,6 +26,7 @@
     <h2>Clientes</h2>
     <button id="addCustomerBtn">Agregar Cliente</button>
 
+
     <table id="customersTable" class="display">
         <thead>
             <tr>
@@ -72,7 +73,7 @@
 
                 <label for="addKey">Clave (PIN de 4 dígitos):</label>
                 <div style="display: flex; align-items: center;">
-                    <input type="password" id="addKey" name="key" required pattern="\d{4}" title="Debe tener exactamente 4 dígitos" style="flex: 1;">
+                    <input type="password" id="addKey" name="key" required pattern="\d{4}" title="Debe tener exactamente 4 dígitos">
                     <button type="button" id="toggleAddPinVisibility" style="margin-left: 5px;">Mostrar</button>
                 </div>
 
@@ -105,7 +106,7 @@
 
                 <label for="editKey">Clave (PIN de 4 dígitos):</label>
                 <div style="display: flex; align-items: center;">
-                    <input type="password" id="editKey" name="key" required style="flex: 1;">
+                    <input type="password" id="editKey" name="key">
                     <button type="button" id="togglePinVisibility" style="margin-left: 5px;">Mostrar</button>
                 </div>
 
@@ -116,7 +117,7 @@
                     <option value="year">Año</option>
                 </select>
 
-                <button type="submit">Actualizar</button>
+                <button class="submitEdit" type="submit">Actualizar</button>
             </form>
         </div>
     </div>
