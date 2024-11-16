@@ -12,6 +12,8 @@
     <!-- Incluyendo jQuery -->
     <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script> <!-- Incluyendo DataTables -->
     <script src="https://cdn.datatables.net/1.11.3/js/jquery.dataTables.min.js"></script>
+    <link rel="icon" href="{{ asset('img/admin.png') }}" type="image/png">
+
 </head>
 
 <body>

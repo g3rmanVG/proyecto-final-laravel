@@ -8,7 +8,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
     //  Muestra el modal de login
     adminLoginBtn.onclick = function() {
-        adminLoginModal.style.display = "block";
+        adminLoginModal.style.display = "flex";
     }
 
     // Oculta el modal

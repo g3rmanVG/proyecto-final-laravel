@@ -7,14 +7,46 @@
     <title>Acceso</title>
     <!-- Incluir el archivo CSS -->
     <link rel="stylesheet" href="{{ asset('css/access.css') }}">
+    <link rel="icon" href="{{ asset('img/access.png') }}" type="image/png">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
 </head>
 
 <body>
-    <h1>Acceso al GYM</h1>
+
+    <div class="main-container">
+
+        <form action="{{ route('index') }}" method="GET">
+            <button type="submit" id="back-button">
+                <i class="fa fa-arrow-left"></i>
+            </button>
+        </form>
+
+        <div class="logo-container">
+            <img src="{{ asset('img/gym-logo2.png') }}" alt="logo-image">
+        </div>
+
+        <h1>Acceso al GYM</h1>
+
+        <form action="{{ route('access.verify') }}" method="POST">
+            @csrf
+            <label for="customerID">ID:</label>
+            <input type="text" id="customerID" name="customerID" required autofocus>
+
+            <label for="key">PIN:</label>
+            <input type="password" id="key" name="key" required>
+
+            <button type="submit">Verificar</button>
+        </form>
+
+    </div>
 
     <!-- Archivos de audio para éxito y error -->
     <audio id="successSound" src="{{ asset('audio/access-granted.mp3') }}"></audio>
     <audio id="errorSound" src="{{ asset('audio/access-denied.mp3') }}"></audio>
+
+
+    <!-- Modal para el mensaje -->
 
     @if (session('message'))
     <div id="messageModal" class="modal">
@@ -30,21 +62,6 @@
         </div>
     </div>
     @endif
-
-    <form action="{{ route('access.verify') }}" method="POST">
-        @csrf
-        <label for="customerID">ID:</label>
-        <input type="text" id="customerID" name="customerID" required>
-
-        <label for="key">PIN:</label>
-        <input type="password" id="key" name="key" required>
-
-        <button type="submit">Verificar</button>
-    </form>
-
-    <form action="{{ route('index') }}" method="GET">
-        <button type="submit">Volver al Inicio</button>
-    </form>
 
     <!-- Incluir el archivo JavaScript -->
     <script src="{{ asset('js/access.js') }}"></script>

@@ -7,16 +7,39 @@
     <title>Gym CRUD</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="{{ asset('css/index.css') }}">
+    <link rel="icon" href="{{ asset('img/gym-logo2.png') }}" type="image/png">
 </head>
 
 <body>
-    <h1>Hola flaco, bienvenido al GYM</h1>
 
-    <form action="{{ route('access') }}" method="GET">
-        <button type="submit">Acceso</button>
-    </form>
+    <div class="main-container">
 
-    <button id="adminLoginBtn">Administración</button>
+        <div class="logo-container">
+            <img src="{{ asset('img/gym-logo2.png') }}" alt="logo-image">
+        </div>
+
+        <h1>GYM CRUD</h1>
+
+        <div class="options-container">
+
+            <div class="access-container">
+                <form action="{{ route('access') }}" method="GET">
+                    <button type="submit">
+                        <img src="{{ asset('img/access.png') }}" alt="logo-image">
+                        Acceso
+                    </button>
+                </form>
+            </div>
+
+            <div>
+                <button id="adminLoginBtn">
+                    <img class="admin-img" src="{{ asset('img/admin.png') }}" alt="logo-image">
+                    Administración
+                </button>
+            </div>
+
+        </div>
+    </div>
 
     <!-- Modal para Login de Administrador -->
     <div id="adminLoginModal" class="modal">
@@ -31,7 +54,7 @@
                 <label for="password">Contraseña:</label>
                 <input type="password" id="password" name="password" required>
 
-                <button type="submit">Login</button>
+                <button type="submit">Ingresar</button>
             </form>
         </div>
     </div>
