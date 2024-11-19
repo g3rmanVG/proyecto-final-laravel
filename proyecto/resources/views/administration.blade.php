@@ -17,45 +17,51 @@
 </head>
 
 <body>
-    <h1>Bienvenido a la Administración</h1>
+    <!-- Barra de navegación superior -->
+    <div class="navbar">
+        <div class="message">Panel de Administración</div>
+        <a href="{{ route('index') }}">
+            <i class="fa fa-arrow-left"></i> Regresar
+        </a>
+    </div>
 
-    <form action="{{ route('index') }}" method="GET">
-        <button type="submit">Volver al Inicio</button>
-    </form>
+    <!-- Contenedor principal -->
+    <div class="main-container">
+        <h1>Bienvenido a la Administración</h1>
 
-    <h2>Clientes</h2>
-    <button id="addCustomerBtn">Agregar Cliente</button>
+        <h2>Clientes</h2>
+        <button id="addCustomerBtn">Agregar Cliente</button>
 
-
-    <table id="customersTable" class="display">
-        <thead>
-            <tr>
-                <th>ID</th>
-                <th>Nombre</th>
-                <th>Apellido</th>
-                <th>Fecha de Vencimiento</th>
-                <th>Acciones</th>
-            </tr>
-        </thead>
-        <tbody>
-            @foreach($customers as $customer)
-            <tr>
-                <td>{{ $customer->customerID }}</td>
-                <td>{{ $customer->name }}</td>
-                <td>{{ $customer->lastName }}</td>
-                <td>{{ $customer->expirationDate }}</td>
-                <td>
-                    <button class="editCustomerBtn" data-id="{{ $customer->customerID }}" data-name="{{ $customer->name }}" data-lastname="{{ $customer->lastName }}" data-key="{{ $customer->key }}" data-expiration="{{ $customer->expirationDate }}">Editar</button>
-                    <form action="{{ route('customers.destroy', $customer->customerID) }}" method="POST" style="display:inline-block;">
-                        @csrf
-                        @method('DELETE')
-                        <button type="submit" onclick="return confirm('¿Estás seguro de que deseas eliminar este cliente?');">Eliminar</button>
-                    </form>
-                </td>
-            </tr>
-            @endforeach
-        </tbody>
-    </table>
+        <table id="customersTable" class="display">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Nombre</th>
+                    <th>Apellido</th>
+                    <th>Fecha de Vencimiento</th>
+                    <th>Acciones</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach($customers as $customer)
+                <tr>
+                    <td>{{ $customer->customerID }}</td>
+                    <td>{{ $customer->name }}</td>
+                    <td>{{ $customer->lastName }}</td>
+                    <td>{{ $customer->expirationDate }}</td>
+                    <td>
+                        <button class="editCustomerBtn" data-id="{{ $customer->customerID }}" data-name="{{ $customer->name }}" data-lastname="{{ $customer->lastName }}" data-key="{{ $customer->key }}" data-expiration="{{ $customer->expirationDate }}">Editar</button>
+                        <form action="{{ route('customers.destroy', $customer->customerID) }}" method="POST" style="display:inline-block;">
+                            @csrf
+                            @method('DELETE')
+                            <button type="submit" onclick="return confirm('¿Estás seguro de que deseas eliminar este cliente?');">Eliminar</button>
+                        </form>
+                    </td>
+                </tr>
+                @endforeach
+            </tbody>
+        </table>
+    </div>
 
     <!-- Modal para Agregar Cliente -->
     <div id="addCustomerModal" class="modal">
