@@ -16,7 +16,7 @@ document.addEventListener('DOMContentLoaded', function() {
         if (message.includes("Acceso concedido")) {
             successSound.play();
             mensajeElement.style.color = "blue";
-        } else if (message.includes("Acceso denegado")) {
+        } else if (message.includes("Suscripción vencida.")) {
             errorSound.play();
             mensajeElement.style.color = "red";
         }

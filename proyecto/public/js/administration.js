@@ -1,5 +1,6 @@
 // resources/js/administration.js
 
+
 $(document).ready(function() {
     $('#customersTable').DataTable({
         language: {
